@@ -1,13 +1,13 @@
-import MyPosts from './MyPosts/MyPosts';
 import classes from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
 
 
 
 const Profile = () => {
     return (
         <div className={classes.content}>
-            <div>
-            <img src='https://storge.pic2.me/c/1360x800/623/55661684bf63f.jpg'/>
+            <div className={classes.content_header}>
+                <img className={classes.content__img}src='https://storge.pic2.me/c/1360x800/623/55661684bf63f.jpg'/>
             </div>
             <div>
             ava + info

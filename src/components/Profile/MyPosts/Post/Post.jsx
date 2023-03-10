@@ -2,13 +2,13 @@ import classes from './Post.module.css';
 
 
 
-const Post = () => {
+const Post = (props) => {
     return (
         <div className={classes.item}>
             <img src="https://i.imgflip.com/1ezeb4.jpg" alt="" />
-            post1
+            {props.message}
             <div>
-                <span>like</span>
+                <span>like</span> {props.likesCount}
             </div>  
         </div>
     );
