@@ -1,11 +1,14 @@
 .nav{
     grid-area: n;
-    background-color: green;
+    background-color: #3b5998;
     padding: 20px;
+    height: 400px;
+    border-radius: 3px;
   }
 
   .nav a {
     text-decoration: none;
+    font-size: 18px;
   }
 
 .item a{
@@ -13,5 +16,5 @@
 }
 
 .item a.active {
-  color:gold;
+  text-decoration: underline;
 }

@@ -1,16 +1,27 @@
+
+
 .app-wrapper{
+  padding: 10px 100px 100px 100px;
   margin: 0 auto;
   display: grid;
-  width: 1200px;
+  min-width: 1000px;
+  max-width: 1600px;
 
   grid-template-areas: 
   "h h"
   "n c";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
+
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  font-family: sans-serif;
 }
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: aquamarine;
+  background-color: #e9ebee;
+  min-height: 400px;
+  border-radius: 3px;
 }

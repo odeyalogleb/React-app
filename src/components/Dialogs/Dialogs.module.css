@@ -1,0 +1,14 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    height: 100%;
+}
+
+.names {
+    padding: 25px;
+    border-right: 2px solid black;
+}
+
+.messages {
+    padding: 25px;
+}
