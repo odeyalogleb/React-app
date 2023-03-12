@@ -4,8 +4,7 @@
   padding: 10px 100px 100px 100px;
   margin: 0 auto;
   display: grid;
-  min-width: 1000px;
-  max-width: 1600px;
+  width: 1100px;
 
   grid-template-areas: 
   "h h"

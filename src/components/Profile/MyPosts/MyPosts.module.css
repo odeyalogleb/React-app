@@ -1,0 +1,11 @@
+.header  textarea{
+    resize: none;
+    width: 400px;
+    height: 100px;
+    
+}
+
+.header button {
+    width: 80px;
+    height: 40px;
+}
