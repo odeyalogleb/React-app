@@ -2,3 +2,8 @@
     font-size: 30px;
     color: gold;
 }
+
+.content a{
+    text-decoration: none;
+    color: #3b5998;
+}
