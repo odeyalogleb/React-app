@@ -1,7 +1,7 @@
 const Message = (props) => {
     return (
         <div>
-            {props.text}
+            {props.message}
         </div>
     );
 }
