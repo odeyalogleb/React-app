@@ -3,7 +3,18 @@
     color: gold;
 }
 
-.content a{
-    text-decoration: none;
-    color: #3b5998;
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
+    .content a{
+        text-decoration: none;
+        color: #3b5998;
+    }
+
+  .content img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }

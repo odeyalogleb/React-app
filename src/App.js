@@ -14,12 +14,11 @@ const App = (props) => {
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar />
+        <Navbar data = {props.data.navbar} />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path = '/profile' element={<Profile data= {props.data} />}/>
-            <Route path = '/dialogs/*' element={<Dialogs 
-            NamesData = {props.NamesData} MessagesData = {props.MessagesData}/>}/>
+            <Route path = '/profile' element={<Profile data={props.data.profile}/>}/>
+            <Route path = '/dialogs/*' element={<Dialogs data={props.data.dialogs} />}/>
             <Route path = '/News' element={<News/>}/>
             <Route path = '/Music' element={<Music/>}/>
             <Route path = '/Settings' element={<Settings/>}/>

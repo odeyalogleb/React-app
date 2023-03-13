@@ -2,7 +2,7 @@
     grid-area: n;
     background-color: #3b5998;
     padding: 20px;
-    height: 400px;
+    min-height: 400px;
     border-radius: 3px;
   }
 

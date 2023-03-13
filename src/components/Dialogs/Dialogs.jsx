@@ -5,10 +5,10 @@ import Message from './Message/Message';
 const Dialogs = (props) => {
     
 
-    let NamesElements = props.NamesData
+    let NamesElements = props.data.NamesData
         .map( u => <Dialog name={u.name} id = {u.id} /> );
     
-    let MessagesElements = props.MessagesData
+    let MessagesElements = props.data.MessagesData
         .map(m => <Message message = {m.message} />);
 
 

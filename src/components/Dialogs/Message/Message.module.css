@@ -1,0 +1,22 @@
+.content {
+    display: flex;
+}
+
+.content .ava img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.content .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.name {
+    font-size: 11px;
+}
+.message {
+    margin-top: 10px;
+}
+
