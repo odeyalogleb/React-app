@@ -4,11 +4,12 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 
-const Profile = () => {
+const Profile = (props) => {
+
     return (
-        <div>
+        <div>          
             <ProfileHeader />
-            <MyPosts />
+            <MyPosts data = {props.data} />
         </div>
     );
 }

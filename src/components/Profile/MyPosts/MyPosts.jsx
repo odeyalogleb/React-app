@@ -3,15 +3,8 @@ import Post from "./Post/Post";
 
 
 
-const MyPosts = () => {
-
-    let PostsData = [
-        {id: 1, message:"Hello, my name is Stanislav", likesCount: 11},
-        {id: 2, message:"Hello, my name is Miron", likesCount: 121},
-        {id: 3, message:"Hello, my name is Tural", likesCount: 1231},
-    ];
-
-    let PostsElements = PostsData
+const MyPosts = (props) => {
+    let PostsElements = props.data
         .map(p => <Post message={p.message} likesCount = {p.likesCount} />);
     
     return (
