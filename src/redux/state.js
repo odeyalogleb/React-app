@@ -14,15 +14,6 @@ let state = {
         MessagesData: [
             {id: 1, message: 'Hello'},
             {id: 2, message: 'Yoo'},
-            {id: 3, message: 'Lets go Party'},
-            {id: 1, message: 'Hello'},
-            {id: 2, message: 'Yoo'},
-            {id: 3, message: 'Lets go Party'},
-            {id: 1, message: 'Hello'},
-            {id: 2, message: 'Yoo'},
-            {id: 3, message: 'Lets go Party'},
-            {id: 1, message: 'Hello'},
-            {id: 2, message: 'Yoo'},
             {id: 3, message: 'Lets go Party'},]
     },
     navbar: {
@@ -36,6 +27,23 @@ let state = {
             {id:7, name:'Bob'}]
     }
 
+}
+
+export let addPost = (postText) => {
+    let postContent = {
+        id: 4,
+        message: postText,
+        likesCount: 0,
+    }
+    state.profile.PostsData.push(postContent);
+}
+
+export let sendMessage = (msgText) => {
+    let msgContent = {
+        id: 4,
+        message: msgText
+    }
+    state.dialogs.MessagesData.push(msgContent);
 }
 
 export default state;

@@ -16,11 +16,8 @@ const Dialogs = (props) => {
 
     let SendMsg = () => {
         let NewMsgText = MsgTextRef.current.value;
-        alert(NewMsgText);
+        props.sendMessage(NewMsgText);
     }
-    
-
-
         return (
         <div className = {classes.dialogs}>
             <div className={classes.names}>

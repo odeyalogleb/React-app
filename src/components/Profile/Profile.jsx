@@ -5,11 +5,10 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 const Profile = (props) => {
-
     return (
         <div>          
             <ProfileHeader />
-            <MyPosts data = {props.data.PostsData} />
+            <MyPosts data = {props.data.PostsData} addPost = {props.addPost}/>
         </div>
     );
 }

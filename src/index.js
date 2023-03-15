@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state.js';
+import state, { sendMessage } from './redux/state.js';
+import { addPost } from './redux/state.js';
+
+//addPost("Hello, my name is samurai");
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <App data = {state}/>
+    <App data = {state} addPost = {addPost} sendMessage = {sendMessage}/>
   </React.StrictMode>
 );
 
