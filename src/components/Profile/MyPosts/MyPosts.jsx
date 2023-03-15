@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
 
@@ -7,15 +8,22 @@ const MyPosts = (props) => {
     let PostsElements = props.data
         .map(p => <Post message={p.message} likesCount = {p.likesCount} />);
     
+    let NewPostText = React.createRef();
+
+    let NewPostAlert = () => {
+        let NewPostValue = NewPostText.current.value;
+        alert(NewPostValue);
+    }
+
     return (
         <div>
             <h2>My posts</h2>
             <div className={classes.header}>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref = {NewPostText}></textarea>
                 </div>
                 <div>
-                    <button>Add Post</button>
+                    <button onClick={NewPostAlert}>Add Post</button>
                 </div>
             </div>
             <div className={classes.content}>

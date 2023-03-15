@@ -14,7 +14,16 @@ let state = {
         MessagesData: [
             {id: 1, message: 'Hello'},
             {id: 2, message: 'Yoo'},
-            {id: 3, message: 'Lets go Party'}]
+            {id: 3, message: 'Lets go Party'},
+            {id: 1, message: 'Hello'},
+            {id: 2, message: 'Yoo'},
+            {id: 3, message: 'Lets go Party'},
+            {id: 1, message: 'Hello'},
+            {id: 2, message: 'Yoo'},
+            {id: 3, message: 'Lets go Party'},
+            {id: 1, message: 'Hello'},
+            {id: 2, message: 'Yoo'},
+            {id: 3, message: 'Lets go Party'},]
     },
     navbar: {
         MyFriendsData:[

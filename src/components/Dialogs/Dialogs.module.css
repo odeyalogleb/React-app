@@ -5,10 +5,36 @@
 }
 
 .names {
-    padding: 25px;
+    padding: 20px;
     border-right: 2px solid black;
 }
 
 .messages {
-    padding: 25px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
+
+
+.newPost {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.newPost textarea {
+    width: 100%;
+    resize: none;
+}
+
+.newPost button {
+    width: 100px;
+    margin-left: 5px;
+}
+
+.content {
+    height: 400px;
+    overflow: auto;
+}
+

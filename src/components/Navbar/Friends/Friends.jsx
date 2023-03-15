@@ -10,17 +10,6 @@ const Friends = (props) =>{
             <h3>My Friends</h3>
             <div className={classes.body}>
                 {MyFriends}
-                
-                
-                
-                {/* <Friend />
-                <Friend />
-                <Friend />
-                <Friend /> 
-                <Friend />
-                <Friend />
-                <Friend />
-                <Friend /> */}
             </div>
              
         </div>
