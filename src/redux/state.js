@@ -5,7 +5,8 @@ let state = {
         PostsData: [
             {id: 1, message:"Hello, my name is Stanislav", likesCount: 11},
             {id: 2, message:"Hello, my name is Miron", likesCount: 121},
-            {id: 3, message:"Hello, my name is Tural", likesCount: 1231}]
+            {id: 3, message:"Hello, my name is Tural", likesCount: 1231}],
+        currMsg: ""
     },
     dialogs: {
         NamesData: [
@@ -38,7 +39,9 @@ export let addPost = (postText) => {
         likesCount: 0,
     }
     state.profile.PostsData.push(postContent);
-    rerenderEntireTree(state, addPost, sendMessage);
+    rerenderEntireTree(state, addPost, sendMessage, changeMessage);
+    state.profile.currMsg = ""; 
+    debugger;
 }
 
 export let sendMessage = (msgText) => {
@@ -47,7 +50,12 @@ export let sendMessage = (msgText) => {
         message: msgText
     }
     state.dialogs.MessagesData.push(msgContent);
-    rerenderEntireTree(state, addPost, sendMessage);
+    rerenderEntireTree(state, addPost, sendMessage, changeMessage);
+}
+
+export let changeMessage = (ccurrMsg) => {  
+    state.profile.currMsg = ccurrMsg;
+    rerenderEntireTree(state, addPost, sendMessage, changeMessage);
 }
 
 export default state;
