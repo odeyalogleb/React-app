@@ -5,22 +5,19 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
+    debugger;
     let PostsElements = props.data.PostsData
         .map(p => <Post message={p.message} likesCount = {p.likesCount} />);
     
     let NewPostText = React.createRef();
 
-
-    let NewPostChange = () => {
-        let NewPostCurrValue = NewPostText.current.value;
-        props.changeMessage(NewPostCurrValue);
-        NewPostText.current.value = props.data.currMsg;
+    let NewPostAlert = () => {
+        props.addPost();    
     }
 
-    let NewPostAlert = () => {
-        let NewPostValue = NewPostText.current.value;
-        props.addPost(NewPostValue);
-        NewPostText.current.value = "";
+    let changeNewPost = () => {
+        let currNewPostValue = NewPostText.current.value;
+        props.changeNewPost(currNewPostValue);
     }
     
 
@@ -29,7 +26,7 @@ const MyPosts = (props) => {
             <h2>My posts</h2>
             <div className={classes.header}>
                 <div>
-                    <textarea ref = {NewPostText} onChange = {NewPostChange}></textarea>
+                    <textarea ref = {NewPostText}  onChange = {changeNewPost} value = {props.data.currText} />
                 </div>
                 <div>
                     <button onClick={NewPostAlert} >Add Post</button>

@@ -5,12 +5,13 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 const Profile = (props) => {
+    debugger;
     return (
         <div>          
             <ProfileHeader />
             <MyPosts data = {props.data} 
             addPost = {props.addPost}
-            changeMessage = {props.changeMessage}/>
+            changeNewPost = {props.changeNewPost}/>
         </div>
     );
 }

@@ -4,11 +4,12 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let rerenderEntireTree = (state, addPost, sendMessage, changeMessage) =>{
+export let rerenderEntireTree = (state, addPost, sendMessage, changeNewPost, changeMsg) =>{
     root.render(
       <React.StrictMode>
         <App data = {state} addPost = {addPost} 
-        sendMessage = {sendMessage} changeMessage = {changeMessage}/>
+        sendMessage = {sendMessage} changeNewPost = {changeNewPost} 
+        changeMsg = {changeMsg}/>
       </React.StrictMode>
     );
   }

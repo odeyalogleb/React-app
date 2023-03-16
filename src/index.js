@@ -1,9 +1,9 @@
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { rerenderEntireTree } from './render';
-import state, { addPost, changeMessage, sendMessage } from './redux/state';
+import state, { addPost, changeMsg, changeNewPost, sendMessage } from './redux/state';
 
-rerenderEntireTree(state, addPost, sendMessage, changeMessage);
+rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
 
 
 
