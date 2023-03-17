@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('State changed');
+}
 
 let state = {
     profile: {
@@ -39,9 +41,13 @@ export let addPost = () => {
         message: state.profile.currText,
         likesCount: 0,
     }
-    state.profile.PostsData.push(postContent);
-    rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
-    state.profile.currText = "";
+
+    if (state.profile.currText !== ""){
+        state.profile.PostsData.push(postContent);
+        rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
+        state.profile.currText = "";
+    }
+    
 }
 
 export let sendMessage = () => {
@@ -49,19 +55,26 @@ export let sendMessage = () => {
         id: 4,
         message: state.dialogs.currMsg
     }
-    state.dialogs.MessagesData.push(msgContent);
-    state.dialogs.currMsg = "";
-    rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
+    if (state.dialogs.currMsg !== ""){
+        state.dialogs.MessagesData.push(msgContent);
+        state.dialogs.currMsg = "";
+        rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
+    }
+    
 }
 
-export let changeNewPost = (currentText) => {
+export const changeNewPost = (currentText) => {
     state.profile.currText = currentText;
     rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
 }
 
-export let changeMsg = (currentMessage) => {
+export const changeMsg = (currentMessage) => {
     state.dialogs.currMsg = currentMessage;
     rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
+}
+
+export const subscriber = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 

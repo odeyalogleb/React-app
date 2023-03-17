@@ -1,7 +1,23 @@
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { rerenderEntireTree } from './render';
-import state, { addPost, changeMsg, changeNewPost, sendMessage } from './redux/state';
+import state, { addPost, changeMsg, changeNewPost, sendMessage, subscriber } from './redux/state';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+let rerenderEntireTree = (state, addPost, sendMessage, changeNewPost, changeMsg) =>{
+    root.render(
+      <React.StrictMode>
+        <App data = {state} addPost = {addPost} 
+        sendMessage = {sendMessage} changeNewPost = {changeNewPost} 
+        changeMsg = {changeMsg}/>
+      </React.StrictMode>
+    );
+  }
+
+subscriber(rerenderEntireTree);
 
 rerenderEntireTree(state, addPost, sendMessage, changeNewPost, changeMsg);
 
