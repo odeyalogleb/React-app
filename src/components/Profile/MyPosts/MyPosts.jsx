@@ -18,6 +18,8 @@ const MyPosts = (props) => {
     let changeNewPost = () => {
         let currNewPostValue = NewPostText.current.value;
         props.changeNewPost(currNewPostValue);
+        console.log(currNewPostValue);
+        
     }
     
 

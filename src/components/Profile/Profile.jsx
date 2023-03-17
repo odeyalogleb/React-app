@@ -5,7 +5,6 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 const Profile = (props) => {
-    debugger;
     return (
         <div>          
             <ProfileHeader />
