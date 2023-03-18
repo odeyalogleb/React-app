@@ -30,17 +30,50 @@ let store = {
                 {id:7, name:'Bob'}]
         }
     },
+     _callSubscriber(){
+        console.log('State changed');
+    },
+
     getState(){
         return this._state;
     },  
-    _rerenderEntireTree(){
-        console.log('State changed');
-    },
-    
     subscriber(observer){
-        this._rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     },
-    addPost(){
+
+    dispatch(action){
+        if (action.type === 'ADD-POST'){
+            let postContent = {
+                id:4,
+                message: this._state.profile.currText,
+                likesCount: 0,
+            }
+    
+            if (this._state.profile.currText !== ""){
+                this._state.profile.PostsData.push(postContent);
+                this._callSubscriber(this._state);
+                this._state.profile.currText = "";
+            }
+        } else if (action.type === 'SEND-MESSAGE'){
+            let msgContent = {
+                id: 4,
+                message: this._state.dialogs.currMsg
+            }
+    
+            if (this._state.dialogs.currMsg !== ""){
+                this._state.dialogs.MessagesData.push(msgContent);
+                this._state.dialogs.currMsg = "";
+                this._callSubscriber(this._state);
+            }
+        } else if (action.type === 'CHANGE-NEW-POST'){
+            this._state.profile.currText = action.currentText;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'CHANGE-MESSAGE'){
+            this._state.dialogs.currMsg = action.currentMessage;
+            this._callSubscriber(this._state);
+        }
+    }
+    /*addPost(){
         let postContent = {
             id:4,
             message: this._state.profile.currText,
@@ -49,7 +82,7 @@ let store = {
 
         if (this._state.profile.currText !== ""){
             this._state.profile.PostsData.push(postContent);
-            this._rerenderEntireTree(this._state);
+            this._callSubscriber(this._state);
             this._state.profile.currText = "";
         }
     },
@@ -62,17 +95,17 @@ let store = {
         if (this._state.dialogs.currMsg !== ""){
             this._state.dialogs.MessagesData.push(msgContent);
             this._state.dialogs.currMsg = "";
-            this._rerenderEntireTree(this._state);
+            this._callSubscriber(this._state);
         }
     },
     changeNewPost(currentText){
         this._state.profile.currText = currentText;
-        this._rerenderEntireTree(this._state);
+        this._callSubscriber(this._state);
     },
     changeMsg(currentMessage) {
         this._state.dialogs.currMsg = currentMessage;
-        this._rerenderEntireTree(this._state);
-    },
+        this._callSubscriber(this._state);
+    },*/
 }
 
 export default store;

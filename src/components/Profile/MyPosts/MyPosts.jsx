@@ -5,21 +5,20 @@ import Post from "./Post/Post";
 
 
 const MyPosts = (props) => {
-    debugger;
     let PostsElements = props.data.PostsData
         .map(p => <Post message={p.message} likesCount = {p.likesCount} />);
     
     let NewPostText = React.createRef();
 
     let NewPostAlert = () => {
-        props.addPost();    
+        let action = {type: 'ADD-POST'}
+        props.dispatch(action);    
     }
 
     let changeNewPost = () => {
         let currNewPostValue = NewPostText.current.value;
-        props.changeNewPost(currNewPostValue);
-        console.log(currNewPostValue);
-        
+        let action = {type: 'CHANGE-NEW-POST', currentText:currNewPostValue }
+        props.dispatch(action);
     }
     
 

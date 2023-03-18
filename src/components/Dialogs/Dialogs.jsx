@@ -16,12 +16,15 @@ const Dialogs = (props) => {
 
     let changeNewMsg = () => {
         let text = MsgTextRef.current.value;
-        props.changeMsg(text);
+        let action = {type: 'CHANGE-MESSAGE', currentMessage: text}
+        props.dispatch(action);
     }
 
     let SendMsg = () => {
-        props.sendMessage();
+        let action = {type: 'SEND-MESSAGE'};
+        props.dispatch(action);
     }
+
         return (
         <div className = {classes.dialogs}>
             <div className={classes.names}>
