@@ -1,6 +1,8 @@
 import React from 'react';
+import { addNewPostActionCreator, changeNewPostActionCreator } from '../../../redux/state';
 import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
+
 
 
 
@@ -10,14 +12,14 @@ const MyPosts = (props) => {
     
     let NewPostText = React.createRef();
 
-    let NewPostAlert = () => {
-        let action = {type: 'ADD-POST'}
+    let addNewPost = () => {
+        let action = addNewPostActionCreator();
         props.dispatch(action);    
     }
 
     let changeNewPost = () => {
         let currNewPostValue = NewPostText.current.value;
-        let action = {type: 'CHANGE-NEW-POST', currentText:currNewPostValue }
+        let action = changeNewPostActionCreator(currNewPostValue);
         props.dispatch(action);
     }
     
@@ -30,7 +32,7 @@ const MyPosts = (props) => {
                     <textarea ref = {NewPostText}  onChange = {changeNewPost} value = {props.data.currText} />
                 </div>
                 <div>
-                    <button onClick={NewPostAlert} >Add Post</button>
+                    <button onClick={addNewPost} >Add Post</button>
                 </div>
             </div>
             <div className={classes.content}>

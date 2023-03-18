@@ -1,7 +1,10 @@
 import React from 'react';
+import { changeNewMsgActionCreator, SendMsgActionCreator } from '../../redux/state';
 import Dialog from './Dialog/Dialog';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
+
+
 
 const Dialogs = (props) => {
     
@@ -16,12 +19,12 @@ const Dialogs = (props) => {
 
     let changeNewMsg = () => {
         let text = MsgTextRef.current.value;
-        let action = {type: 'CHANGE-MESSAGE', currentMessage: text}
+        let action = changeNewMsgActionCreator(text);
         props.dispatch(action);
     }
 
-    let SendMsg = () => {
-        let action = {type: 'SEND-MESSAGE'};
+    let sendMsg = () => {
+        let action = SendMsgActionCreator();
         props.dispatch(action);
     }
 
@@ -40,7 +43,7 @@ const Dialogs = (props) => {
                     onChange = {changeNewMsg}
                     value={props.data.currMsg}
                      />
-                    <button onClick={SendMsg}>Send Message</button>
+                    <button onClick={sendMsg}>Send Message</button>
                 </div>
             </div>
             

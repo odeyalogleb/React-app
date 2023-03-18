@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_NEW_POST = 'CHANGE-NEW-POST';
+const CHANGE_MESSAGE = 'CHANGE-MESSAGE';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
 let store = {
     _state: {
         profile: {
@@ -73,39 +78,14 @@ let store = {
             this._callSubscriber(this._state);
         }
     }
-    /*addPost(){
-        let postContent = {
-            id:4,
-            message: this._state.profile.currText,
-            likesCount: 0,
-        }
-
-        if (this._state.profile.currText !== ""){
-            this._state.profile.PostsData.push(postContent);
-            this._callSubscriber(this._state);
-            this._state.profile.currText = "";
-        }
-    },
-    sendMessage () {
-        let msgContent = {
-            id: 4,
-            message: this._state.dialogs.currMsg
-        }
-
-        if (this._state.dialogs.currMsg !== ""){
-            this._state.dialogs.MessagesData.push(msgContent);
-            this._state.dialogs.currMsg = "";
-            this._callSubscriber(this._state);
-        }
-    },
-    changeNewPost(currentText){
-        this._state.profile.currText = currentText;
-        this._callSubscriber(this._state);
-    },
-    changeMsg(currentMessage) {
-        this._state.dialogs.currMsg = currentMessage;
-        this._callSubscriber(this._state);
-    },*/
 }
+
+export const addNewPostActionCreator = () => ({type: ADD_POST});
+export const changeNewPostActionCreator = (currTxt) => 
+    ({type:CHANGE_NEW_POST,currentText: currTxt});
+
+export const SendMsgActionCreator = () => ({type: SEND_MESSAGE});
+export const changeNewMsgActionCreator = (currMsg) => 
+    ({type: CHANGE_MESSAGE, currentMessage: currMsg});
 
 export default store;
