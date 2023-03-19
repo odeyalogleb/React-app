@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_NEW_POST = 'CHANGE-NEW-POST';
-const CHANGE_MESSAGE = 'CHANGE-MESSAGE';
-const SEND_MESSAGE = 'SEND-MESSAGE';
+import dialogsReducer from "./dialogsReducer";
+import navbarReducer from "./navbarReducer";
+import profileReducer from "./profileReducer";
 
 let store = {
     _state: {
@@ -47,45 +46,12 @@ let store = {
     },
 
     dispatch(action){
-        if (action.type === 'ADD-POST'){
-            let postContent = {
-                id:4,
-                message: this._state.profile.currText,
-                likesCount: 0,
-            }
-    
-            if (this._state.profile.currText !== ""){
-                this._state.profile.PostsData.push(postContent);
-                this._callSubscriber(this._state);
-                this._state.profile.currText = "";
-            }
-        } else if (action.type === 'SEND-MESSAGE'){
-            let msgContent = {
-                id: 4,
-                message: this._state.dialogs.currMsg
-            }
-    
-            if (this._state.dialogs.currMsg !== ""){
-                this._state.dialogs.MessagesData.push(msgContent);
-                this._state.dialogs.currMsg = "";
-                this._callSubscriber(this._state);
-            }
-        } else if (action.type === 'CHANGE-NEW-POST'){
-            this._state.profile.currText = action.currentText;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'CHANGE-MESSAGE'){
-            this._state.dialogs.currMsg = action.currentMessage;
-            this._callSubscriber(this._state);
-        }
+        this._state.profile = profileReducer(this._state.profile, action);
+        this._state.dialogs = dialogsReducer(this._state.dialogs, action);
+        this._state.navbar = navbarReducer(this._state.navbar, action);
+
+        this._callSubscriber(this._state);
     }
 }
-
-export const addNewPostActionCreator = () => ({type: ADD_POST});
-export const changeNewPostActionCreator = (currTxt) => 
-    ({type:CHANGE_NEW_POST,currentText: currTxt});
-
-export const SendMsgActionCreator = () => ({type: SEND_MESSAGE});
-export const changeNewMsgActionCreator = (currMsg) => 
-    ({type: CHANGE_MESSAGE, currentMessage: currMsg});
 
 export default store;
