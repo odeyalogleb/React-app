@@ -1,5 +1,4 @@
 import React from 'react';
-import { changeNewMsgActionCreator, SendMsgActionCreator } from '../../redux/dialogsReducer';
 import Dialog from './Dialog/Dialog';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -15,17 +14,14 @@ const Dialogs = (props) => {
     let MessagesElements = props.data.MessagesData
         .map(m => <Message message = {m.message} />);
 
-    let MsgTextRef = React.createRef();
 
-    let changeNewMsg = () => {
-        let text = MsgTextRef.current.value;
-        let action = changeNewMsgActionCreator(text);
-        props.dispatch(action);
+    let changeNewMsg = (e) => {
+        let text = e.target.value;
+        props.changeNewMsg(text);
     }
 
     let sendMsg = () => {
-        let action = SendMsgActionCreator();
-        props.dispatch(action);
+        props.sendMsg();
     }
 
         return (
@@ -38,7 +34,7 @@ const Dialogs = (props) => {
                     {MessagesElements}
                 </div>
                 <div className={classes.newPost}>
-                    <textarea ref={MsgTextRef} 
+                    <textarea 
                     placeholder='Write a message...' 
                     onChange = {changeNewMsg}
                     value={props.data.currMsg}
