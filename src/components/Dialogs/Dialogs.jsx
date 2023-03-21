@@ -6,13 +6,13 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-    
+
 
     let NamesElements = props.data.NamesData
-        .map( u => <Dialog name={u.name} id = {u.id} /> );
-    
+        .map(u => <Dialog name={u.name} id={u.id} />);
+
     let MessagesElements = props.data.MessagesData
-        .map(m => <Message message = {m.message} />);
+        .map(m => <Message message={m.message} />);
 
 
     let changeNewMsg = (e) => {
@@ -24,8 +24,8 @@ const Dialogs = (props) => {
         props.sendMsg();
     }
 
-        return (
-        <div className = {classes.dialogs}>
+    return (
+        <div className={classes.dialogs}>
             <div className={classes.names}>
                 {NamesElements}
             </div>
@@ -34,15 +34,15 @@ const Dialogs = (props) => {
                     {MessagesElements}
                 </div>
                 <div className={classes.newPost}>
-                    <textarea 
-                    placeholder='Write a message...' 
-                    onChange = {changeNewMsg}
-                    value={props.data.currMsg}
-                     />
+                    <textarea
+                        placeholder='Write a message...'
+                        onChange={changeNewMsg}
+                        value={props.data.currMsg}
+                    />
                     <button onClick={sendMsg}>Send Message</button>
                 </div>
             </div>
-            
+
         </div>
     );
 }

@@ -4,13 +4,12 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 
-const Profile = (props) => {
+const Profile = () => {
     debugger;
     return (
         <div>          
             <ProfileHeader />
-            <MyPostsContainer data = {props.data} 
-            dispatch = {props.dispatch} />
+            <MyPostsContainer />
         </div>
     );
 }

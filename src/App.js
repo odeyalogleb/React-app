@@ -9,21 +9,17 @@ import Settings from './components/Settings/Settings';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-const App = (props) => {
+const App = () => {
   debugger;
   return(
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
-        <Navbar data = {props.state.navbar} />
+        <Navbar />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path = '/profile' element={<Profile 
-            data = {props.state} 
-            dispatch = {props.dispatch}/>}/>
-            <Route path = '/dialogs/*' element={<DialogsContainer 
-            data={props.state.dialogs} 
-            dispatch = {props.dispatch} />}/>
+            <Route path = '/profile' element={<Profile />}/>
+            <Route path = '/dialogs/*' element={<DialogsContainer />}/>
             <Route path = '/News' element={<News/>}/>
             <Route path = '/Music' element={<Music/>}/>
             <Route path = '/Settings' element={<Settings/>}/>
