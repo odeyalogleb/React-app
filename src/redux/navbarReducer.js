@@ -1,4 +1,4 @@
-let initialScale = {
+let initialState = {
     MyFriendsData:[
         {id:1, name:'Miron'},
         {id:2, name:'Stas'},
@@ -9,7 +9,7 @@ let initialScale = {
         {id:7, name:'Bob'}]
 }
 
-const navbarReducer = (state = initialScale, action) => {
+const navbarReducer = (state = initialState, action) => {
     return state;
 }
 

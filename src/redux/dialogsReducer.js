@@ -1,7 +1,7 @@
 const CHANGE_MESSAGE = 'CHANGE-MESSAGE';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
-let initialScale = {
+let initialState = {
     NamesData: [
         { id: 1, name: 'Stas' },
         { id: 2, name: 'Miron' },
@@ -14,7 +14,7 @@ let initialScale = {
     currMsg: ""
 }
 
-const dialogsReducer = (state = initialScale, action) => {
+const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case SEND_MESSAGE:

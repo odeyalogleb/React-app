@@ -8,9 +8,9 @@ import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 const App = () => {
-  debugger;
   return(
     <BrowserRouter>
       <div className='app-wrapper'>
@@ -23,6 +23,7 @@ const App = () => {
             <Route path = '/News' element={<News/>}/>
             <Route path = '/Music' element={<Music/>}/>
             <Route path = '/Settings' element={<Settings/>}/>
+            <Route path='/users' element = {<UsersContainer />} />
           </Routes>
         </div>
       </div>

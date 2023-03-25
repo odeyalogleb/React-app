@@ -1,7 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const CHANGE_NEW_POST = 'CHANGE-NEW-POST';
 
-let initialScale = {
+let initialState = {
     PostsData: [
         { id: 1, message: "Hello, my name is Stanislav", likesCount: 11 },
         { id: 2, message: "Hello, my name is Miron", likesCount: 121 },
@@ -11,7 +11,7 @@ let initialScale = {
 
 }
 
-const profileReducer = (state = initialScale, action) => {
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             {
