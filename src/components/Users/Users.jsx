@@ -1,10 +1,15 @@
+import axios from "axios";
 import User from "./User/User"
 
 const Users = (props) => {
     
     
     if (props.users.length === 0) {
-        props.setUsers( 
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        .then(response => {
+            props.setUsers(response.data.items);
+        });
+        {/*props.setUsers( 
             [{
                 id: 1, followed: true,
                 photoURL: "https://i.pinimg.com/originals/85/79/78/857978afa22ddb0bf7c4a6a68b7afb05.jpg",
@@ -20,7 +25,8 @@ const Users = (props) => {
                 photoURL: "https://i.pinimg.com/originals/85/79/78/857978afa22ddb0bf7c4a6a68b7afb05.jpg",
                 location: { country: "Russia", city: "TLT" }, status: "i am stas", name: "STAS F"
             }]
-        );
+        );*/}
+
     }
     let userElements = props.users.map(u => <User data={u} follow={props.follow} unfollow={props.unfollow} />);
 

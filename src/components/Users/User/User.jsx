@@ -1,10 +1,13 @@
 import classes from './User.module.css';
+import userPhoto from '../../../assets/images/user.png'
 
 const User = (props) => {
     return (
         <div>
             <div>
-                <img className={classes.image} src={props.data.photoURL} alt="" />
+                <img className={classes.image} src={props.data.photos.small != null ? 
+                    props.data.photos.small 
+                    : userPhoto} alt="" />
             </div>
             <div>
                 {props.data.followed ? 
@@ -18,8 +21,8 @@ const User = (props) => {
                 {props.data.status}
             </div>
             <div>
-                {props.data.location.country}
-                {props.data.location.city}
+                {"props.data.location.country"}
+                {"props.data.location.city"}
             </div>
         </div>
     );
