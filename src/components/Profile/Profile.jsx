@@ -4,11 +4,10 @@ import ProfileHeader from './ProfileHeader/ProfileHeader';
 
 
 
-const Profile = () => {
-    debugger;
+const Profile = (props) => {
     return (
         <div>          
-            <ProfileHeader />
+            <ProfileHeader profile = {props.profile} />
             <MyPostsContainer />
         </div>
     );

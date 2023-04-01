@@ -3,7 +3,6 @@ import classes from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    debugger;
     let PostsElements = props.data.PostsData
         .map(p => <Post message={p.message} likesCount = {p.likesCount} />);
     

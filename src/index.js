@@ -14,6 +14,8 @@ root.render(
   </Provider>
 );
 
+window.store = store;
+
 
 
 
