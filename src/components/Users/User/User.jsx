@@ -2,6 +2,7 @@ import classes from './User.module.css';
 import userPhoto from '../../../assets/images/user.png'
 
 const User = (props) => {
+    debugger;
     return (
         <div>
             <div>
@@ -11,7 +12,7 @@ const User = (props) => {
             </div>
             <div>
                 {props.data.followed ? 
-                    <button onClick={ () => props.unfollow(props.data.id)}>Unfollow</button> 
+                    <button onClick={ () => props.unFollow(props.data.id)}>Unfollow</button> 
                     :<button onClick={ () => props.follow(props.data.id)}>Follow</button> }
             </div>
             <div>
