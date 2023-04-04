@@ -10,3 +10,10 @@
       width: 40px;
       height: 40px;
     }
+    .header .login {
+      float: right;
+    }
+      .header .login a {
+        color: white;
+        text-decoration: none;
+      }
