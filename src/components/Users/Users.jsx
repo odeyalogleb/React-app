@@ -2,7 +2,6 @@ import User from "./User/User";
 import classes from './Users.module.css';
 
 const Users = (props) => {
-    debugger;
     //let pages = Math.ceil(this.totalUsersCount / this.pageSize);
     let userElements = props.users.map(u => <User data={u} 
         follow={props.follow} unFollow={props.unFollow} />);
