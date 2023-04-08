@@ -14,21 +14,23 @@ const User = (props) => {
             </div>
             <div>
                 {props.data.followed ?
-                    <button onClick={() =>{
-
+                    <button  disabled = {props.isFollowing.some(id => id === props.data.id)} onClick={() =>{
+                        props.toggleIsFollowing(true, props.data.id);
                         UsersAPI.followDelete(props.data.id).then(data => {
                             if (data.resultCode === 0){
                                 props.unFollow(props.data.id) ;
                             }
+                            props.toggleIsFollowing(false, props.data.id);
                                 
                         })
                     } }>Unfollow</button>
-                    : <button onClick={() =>{
+                    : <button disabled = {props.isFollowing.some(id => id === props.data.id)} onClick={() =>{
+                        props.toggleIsFollowing(true, props.data.id);
                         UsersAPI.followPost(props.data.id).then(data => {
                             if (data.resultCode === 0){
                                 props.follow(props.data.id);
                             }
-                            
+                            props.toggleIsFollowing(false, props.data.id);
                         })  
                     } }>Follow</button>}
             </div>

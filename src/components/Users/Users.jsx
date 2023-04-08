@@ -4,7 +4,9 @@ import classes from './Users.module.css';
 const Users = (props) => {
     //let pages = Math.ceil(this.totalUsersCount / this.pageSize);
     let userElements = props.users.map(u => <User data={u} 
-        follow={props.follow} unFollow={props.unFollow} />);
+        follow={props.follow} unFollow={props.unFollow} 
+        toggleIsFollowing = {props.toggleIsFollowing}
+        isFollowing = {props.isFollowing}/>);
     let pagesCount = [];
 
     for (let i = 1; i <=10 ; i++){
