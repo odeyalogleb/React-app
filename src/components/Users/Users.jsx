@@ -3,21 +3,21 @@ import classes from './Users.module.css';
 
 const Users = (props) => {
     //let pages = Math.ceil(this.totalUsersCount / this.pageSize);
-    let userElements = props.users.map(u => <User data={u} 
-        follow={props.follow} unFollow={props.unFollow} 
-        toggleIsFollowing = {props.toggleIsFollowing}
-        isFollowing = {props.isFollowing}/>);
+    let userElements = props.users.map(u => <User data={u}
+        isFollowing={props.isFollowing}
+        followThunk={props.followThunk}
+        unfollowThunk={props.unfollowThunk} />);
     let pagesCount = [];
 
-    for (let i = 1; i <=10 ; i++){
+    for (let i = 1; i <= 10; i++) {
         pagesCount.push(i);
     }
 
     let pagesCountElements = pagesCount
         .map(p => {
-            return (<span 
+            return (<span
                 className={props.currentPage === p && classes.active}
-                onClick = {(e) => {props.onPageChanged(p)}} >{p}</span>)
+                onClick={(e) => { props.onPageChanged(p) }} >{p}</span>)
         })
     return (
         <div>
