@@ -7,6 +7,8 @@ import {
 import React from "react";
 import Users from "./Users";
 import Preloader from "../common/Preloader";
+import { WithAuthRedirect } from "../../hoc/WithAuthRedirect";
+import { compose } from "redux";
 
 
 
@@ -74,9 +76,14 @@ const mapStateToProps = (state) => {
         }
     }
 }*/
+let UserContEnd =  compose(
+    connect(mapStateToProps,
+        {
+            setCurrentPage, setTotalUsersCount, setUsers,
+            toggleIsFollowing, getUsers, getUsers2, followThunk, unfollowThunk
+        }),
+    WithAuthRedirect
+)(UsersContainer);
 
-export default connect(mapStateToProps,
-    {
-        setCurrentPage, setTotalUsersCount, setUsers,
-        toggleIsFollowing, getUsers, getUsers2, followThunk, unfollowThunk
-    })(UsersContainer);
+
+export default UserContEnd;
