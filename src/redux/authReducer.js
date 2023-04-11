@@ -1,4 +1,4 @@
-import { HeaderAPI } from "../api/api";
+ import { HeaderAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 

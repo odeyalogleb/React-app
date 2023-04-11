@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import Dialog from './Dialog/Dialog';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -6,8 +7,6 @@ import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
-
-
     let NamesElements = props.data.NamesData
         .map(u => <Dialog name={u.name} id={u.id} />);
 
@@ -23,7 +22,11 @@ const Dialogs = (props) => {
     let sendMsg = () => {
         props.sendMsg();
     }
+    debugger
+    if(!props.isAuth)
+        return <Navigate to="/login" />
 
+        
     return (
         <div className={classes.dialogs}>
             <div className={classes.names}>

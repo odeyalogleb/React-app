@@ -4,7 +4,7 @@ import classes from './Header.module.css';
 const Header = (props) => {
     return (
         <header className={classes.header}>
-            <img src='https://www.nicepng.com/png/full/443-4438504_facebook-logo-png.png' />
+            <img src='https://www.nicepng.com/png/full/443-4438504_facebook-logo-png.png' alt='' />
             <div className={classes.login}>
                 {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
                 

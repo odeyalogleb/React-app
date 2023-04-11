@@ -1,11 +1,11 @@
-import React from "react";
 import { connect } from "react-redux";
 import { changeNewMsgActionCreator, SendMsgActionCreator } from "../../redux/dialogsReducer";
 import Dialogs from "./Dialogs"
 
 let mapStateToProps = (state) => {
     return {
-        data: state.dialogs
+        data: state.dialogs,
+        isAuth: state.auth.isAuth
     }
 }
 

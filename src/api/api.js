@@ -17,6 +17,9 @@ export const UsersAPI = {
     },
     followPost(id = 1){
         return instance.post(`/follow/${id}`).then(response => response.data)
+    },
+    getProfile(userId){
+        return instance.get(`profile/${userId}`)
     }
 }
 
