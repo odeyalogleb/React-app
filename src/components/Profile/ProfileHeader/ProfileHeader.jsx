@@ -1,5 +1,6 @@
 import Preloader from '../../common/Preloader';
 import classes from './ProfileHeader.module.css';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileHeader = (props) => {
     if (!props.profile){
@@ -8,11 +9,11 @@ const ProfileHeader = (props) => {
     return (
         <div>
             <div className={classes.header}>
-                <img src='https://storge.pic2.me/c/1360x800/623/55661684bf63f.jpg' alt=''/>
+                {/*<img src='https://storge.pic2.me/c/1360x800/623/55661684bf63f.jpg' alt=''/>*/}
                 <img src={ props.profile.photos.large ? props.profile.photos.large : null} alt=''/>
             </div>
             <div>
-                ava + info
+                <ProfileStatus />
             </div>
         </div>
     );
