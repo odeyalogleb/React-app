@@ -13,7 +13,7 @@ const ProfileHeader = (props) => {
                 <img src={ props.profile.photos.large ? props.profile.photos.large : null} alt=''/>
             </div>
             <div>
-                <ProfileStatus />
+                <ProfileStatus status = {props.status} updateStatus = {props.updateStatus} />
             </div>
         </div>
     );
