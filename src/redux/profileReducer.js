@@ -11,7 +11,6 @@ let initialState = {
         { id: 2, message: "Hello, my name is Miron", likesCount: 121 },
         { id: 3, message: "Hello, my name is Tural", likesCount: 1231 }
     ],
-    currText: "",
     profile: null,
     status: ''
 
@@ -23,7 +22,7 @@ const profileReducer = (state = initialState, action) => {
             {
                 let postContent = {
                     id: 4,
-                    message: state.currText,
+                    message: action.newPostText,
                     likesCount: 0,
                 }
                 
@@ -37,12 +36,6 @@ const profileReducer = (state = initialState, action) => {
 
                 return stateCopy;
             }
-
-        case CHANGE_NEW_POST:{
-            let stateCopy = {...state}
-            stateCopy.currText = action.currentText;
-            return stateCopy;
-        }
 
         case SET_USER_PROFILE: {
             let stateCopy = {
@@ -66,7 +59,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addNewPostActionCreator = () => ({ type: ADD_POST });
+export const addNewPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText});
 export const changeNewPostActionCreator = (currTxt) =>
     ({ type: CHANGE_NEW_POST, currentText: currTxt });
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});

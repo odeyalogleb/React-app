@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import Dialog from './Dialog/Dialog';
 import classes from './Dialogs.module.css';
 import Message from './Message/Message';
@@ -11,18 +12,11 @@ const Dialogs = (props) => {
 
     let MessagesElements = props.data.MessagesData
         .map(m => <Message message={m.message} />);
-
-
-    let changeNewMsg = (e) => {
-        let text = e.target.value;
-        props.changeNewMsg(text);
+    
+    let addNewMsg = (values) => {
+        props.sendMsg(values.msgText)
     }
 
-    let sendMsg = () => {
-        props.sendMsg();
-    }
-
-        
     return (
         <div className={classes.dialogs}>
             <div className={classes.names}>
@@ -32,18 +26,28 @@ const Dialogs = (props) => {
                 <div className={classes.content}>
                     {MessagesElements}
                 </div>
-                <div className={classes.newPost}>
-                    <textarea
-                        placeholder='Write a message...'
-                        onChange={changeNewMsg}
-                        value={props.data.currMsg}
-                    />
-                    <button onClick={sendMsg}>Send Message</button>
-                </div>
+                <DialogsReduxForm
+                currMsg={props.data.currMsg} onSubmit = {addNewMsg} />
             </div>
 
         </div>
     );
 }
+
+
+
+const DialogsForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={classes.newPost}>
+            <Field component={"textarea"} name={"msgText"}
+                onChange={props.changeNewMsg} placeholder='Write a message...'
+                value={props.currMsg} />
+
+            <button type="submit">Send Message</button>
+        </form>
+    )
+}
+
+const DialogsReduxForm = reduxForm({form: "dialogs" })(DialogsForm)
 
 export default Dialogs;

@@ -1,4 +1,3 @@
-const CHANGE_MESSAGE = 'CHANGE-MESSAGE';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let initialState = {
@@ -11,7 +10,6 @@ let initialState = {
         { id: 1, message: 'Hello' },
         { id: 2, message: 'Yoo' },
         { id: 3, message: 'Lets go Party' },],
-    currMsg: ""
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -21,7 +19,7 @@ const dialogsReducer = (state = initialState, action) => {
             {
                 let msgContent = {
                     id: 4,
-                    message: state.currMsg
+                    message: action.msgText
                 }
 
                 let stateCopy = { ...state };
@@ -34,19 +32,11 @@ const dialogsReducer = (state = initialState, action) => {
 
                 return stateCopy;
             }
-        case CHANGE_MESSAGE:{
-            let stateCopy = {...state};
-            stateCopy.currMsg = action.currentMessage;
-            return stateCopy;
-        }
-
         default:
             return state;
     }
 }
 
-export const SendMsgActionCreator = () => ({ type: SEND_MESSAGE });
-export const changeNewMsgActionCreator = (currMsg) =>
-    ({ type: CHANGE_MESSAGE, currentMessage: currMsg });
+export const SendMsgActionCreator = (msgText) => ({ type: SEND_MESSAGE, msgText });
 
 export default dialogsReducer;
