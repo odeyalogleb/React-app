@@ -15,7 +15,6 @@ const authReducer = (state = initialState, action) => {
             let stateCopy = {
                 ...state,
                 ...action.data,
-                isAuth: true
             }
             return stateCopy
         }
@@ -24,16 +23,36 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setUserData = (id, login, email) => ({type:SET_USER_DATA, data: {id, login, email}});
+export const setUserData = (id, login, email, isAuth) => ({type:SET_USER_DATA, data: {id, login, email, isAuth}});
 
 export const authMe = () => {
     return (dispatch) => {
         HeaderAPI.authMe().then(data => {
             if (data.resultCode === 0) {
                 let {id, email, login} = data.data;
-                dispatch(setUserData(id,email, login));
+                dispatch(setUserData(id,email, login, true));
             }
             
+        })
+    }
+}
+
+export const login = (email, password, rememberMe) => {
+    return (dispatch) => {
+        HeaderAPI.login(email, password, rememberMe).then(data => {
+            if(data.resultCode === 0){
+                dispatch(authMe())
+            }
+        })
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        HeaderAPI.logout().then(data => {
+            if (data.resultCode === 0){
+                dispatch(setUserData(null,null,null,false))
+            }
         })
     }
 }

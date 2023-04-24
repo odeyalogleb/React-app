@@ -6,8 +6,14 @@ const Header = (props) => {
         <header className={classes.header}>
             <img src='https://www.nicepng.com/png/full/443-4438504_facebook-logo-png.png' alt='' />
             <div className={classes.login}>
-                {props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth ? 
+                <div>
+                    {props.login}
+                    <button onClick={props.logout} >Log out</button>
+                </div>
                 
+                    : <NavLink to={'/login'}>Login</NavLink>}
+
             </div>
         </header>
 

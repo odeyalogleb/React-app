@@ -8,8 +8,9 @@ import { compose } from "redux";
 class ProfileContainer extends React.Component {
 
     componentDidMount(){
-
         let userId = this.props.param.userId
+        if (!userId)
+            userId = 28641
         this.props.getProfile(userId)
         this.props.getStatus(userId)
     }
