@@ -1,4 +1,5 @@
- import { HeaderAPI } from "../api/api";
+ import { stopSubmit } from "redux-form";
+import { HeaderAPI } from "../api/api";
 
 const SET_USER_DATA = 'SET-USER-DATA';
 
@@ -42,6 +43,9 @@ export const login = (email, password, rememberMe) => {
         HeaderAPI.login(email, password, rememberMe).then(data => {
             if(data.resultCode === 0){
                 dispatch(authMe())
+            } else {
+                let errorData = data.messages.length > 0 ? data.messages[0] : "Some error";
+                dispatch(stopSubmit("login", {_error: errorData}))
             }
         })
     }

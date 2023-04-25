@@ -4,6 +4,7 @@ import { login } from "../../redux/authReducer";
 import { maxLength, required } from "../../utils/validators/validators"
 import { Input } from "../common/FormsControls/FormsControls"
 import { Navigate } from "react-router-dom";
+import classes from './Login.module.css'
 
 let maxLength20 = maxLength(20);
 
@@ -24,6 +25,9 @@ const LoginForm = (props) => {
                 <Field component={Input}  type={"checkbox"} name={"remeberMe"} 
                 validate = {[required]}/> remember me
             </div>
+            {props.error && <div className={classes.someCommonError}>
+                {props.error}
+                </div>}
             <div>
                 <button type="submit">Login</button>
             </div>
