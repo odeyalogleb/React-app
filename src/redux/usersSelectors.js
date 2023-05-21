@@ -1,6 +1,13 @@
-export let getUsersData = (state) => {
+import { createSelector } from "reselect"
+
+let getUsersSelector = (state) => {
     return state.usersPage.users
 }
+
+export const getUsersData = createSelector(getUsersSelector, (users) => {
+    return users.filter(item => true);
+})
+
 
 export let getTotalUsersCount = (state) => {
     return state.usersPage.totalUsersCount
