@@ -1,6 +1,6 @@
 import Preloader from '../../common/Preloader';
 import classes from './ProfileHeader.module.css';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatus from './ProfileStatusWithHooks';
 
 const ProfileHeader = (props) => {
     if (!props.profile){
