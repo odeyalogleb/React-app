@@ -4,7 +4,8 @@ import { Navigate } from "react-router-dom";
 
 let mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        // isAuth: state.auth.isAuth
+        isAuth: "hui"
     }
 }
 
@@ -17,5 +18,5 @@ export const WithAuthRedirect = (Component) => {
         }
     }
 
-    return connect(mapStateToProps)(RedirectComponent)
+    // return connect(mapStateToProps)(RedirectComponent)
 }
