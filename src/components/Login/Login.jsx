@@ -10,7 +10,7 @@ let maxLength20 = maxLength(20);
 
 
 
-const LoginForm = (props) => {
+//const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} >
             <div>
@@ -37,7 +37,7 @@ const LoginForm = (props) => {
 
 
 
-const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
+//const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
 const Login = (props) => {
 
