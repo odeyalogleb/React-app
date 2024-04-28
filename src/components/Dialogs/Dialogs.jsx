@@ -9,8 +9,8 @@ import Message from './Message/Message';
 let maxLength50 = maxLength(50);
 
 const Dialogs = (props) => {
-    debugger;
-    let NamesElements = props.data.NamesData
+    //debugger;
+    //let NamesElements = props.data.NamesData
         .map(u => <Dialog name={u.name} id={u.id} />);
 
     let MessagesElements = props.data.MessagesData
